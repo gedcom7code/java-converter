@@ -1,4 +1,4 @@
-This is a work-in-progress Java 5.5.1-to-7.0 converter.
+This is an **incomplete, work-in-progress** 5.5.1-to-7.0 converter.
 Some parts are ported directly from the C converter (such as the ANSEL Charset and date and age parsing) while others are built from the ground up. The hope is that having two somewhat-separate implementations will allow me to use the two to test one another, a hope that has already resulted in a few bug fixes in the C version.
 
 Current status:

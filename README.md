@@ -21,10 +21,12 @@ Current status:
     - [x] Normalize spacing in `AGE` payloads
     - [x] add missing `y`
 - [x] Change any illegal tag `XYZ` into `_EXT_XYZ`
+    - [ ] or to `_XYZ` and add a SCHMA entry for it
+    - [ ] leave unchanged under extensions
 - [x] change `SOUR` with text payload into pointer to `SOUR` with `NOTE`
 - [x] change `OBJE` with no payload to pointer to new `OBJE` record
-- [ ] change `NOTE` record or with pointer payload into `SNOTE`
-    - [ ] use heuristic to change some pointer-`NOTE` to nested-`NOTE` instead of `SNOTE`
+- [x] change `NOTE` record or with pointer payload into `SNOTE`
+    - [x] use heuristic to change some pointer-`NOTE` to nested-`NOTE` instead of `SNOTE`
 - [ ] Convert `LANG` payloads to BCP 47 tags, using [FHISO's mapping](https://github.com/fhiso/legacy-format/blob/master/languages.tsv)
 - [ ] Convert `MEDI`.`FORM` payloads to media types
 - [ ] Enumerated values

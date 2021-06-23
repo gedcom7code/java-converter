@@ -57,6 +57,7 @@ public class Converter5to7 {
             new NoteFilter(),
             new SourceFilter(),
             new ObjectFilter(),
+            new LanguageFilter(),
         };
         for(Filter f : filters) {
             java.util.LinkedList<GedStruct> created = new java.util.LinkedList<GedStruct>();

@@ -46,14 +46,14 @@ public class GedStruct {
     public GedStruct(GedStruct sup, String tag) {
         this.sub = new LinkedList<GedStruct>();
         if (tag.indexOf(':') < 0) this.tag = tag;
-        else this.uri = tag;
+        else { this.uri = tag; this.uri2tag(); }
         if (sup != null) { sup.addSubstructure(this); this.level = sup.level+1; }
         else { this.sup = null; this.level = 0; }
     }
     public GedStruct(GedStruct sup, String tag, String payload) {
         this.sub = new LinkedList<GedStruct>();
         if (tag.indexOf(':') < 0) this.tag = tag;
-        else this.uri = tag;
+        else { this.uri = tag; this.uri2tag(); }
         this.payload = payload;
         if (sup != null) { sup.addSubstructure(this); this.level = sup.level+1; }
         else { this.sup = null; this.level = 0; }
@@ -61,7 +61,7 @@ public class GedStruct {
     public GedStruct(GedStruct sup, String tag, GedStruct payload) {
         this.sub = new LinkedList<GedStruct>();
         if (tag.indexOf(':') < 0) this.tag = tag;
-        else this.uri = tag;
+        else { this.uri = tag; this.uri2tag(); }
         this.pointsTo = payload;
         if (payload == null) this.payload = "@VOID@";
         else if (payload.incoming != null) payload.incoming.add(this);
@@ -99,8 +99,7 @@ public class GedStruct {
     }
     
     public void tag2uri() {
-        if (sup == null && tag.equals("HEAD")) uri = "HEAD pseudostructure";
-        else if (sup == null) uri = GedcomDefinitions.structURI("", tag);
+        if (sup == null) uri = GedcomDefinitions.structURI("", tag);
         else if (sup.uri == null || GedcomDefinitions.structTag(sup.uri) == null)
             uri = GedcomDefinitions.structURI(null, tag);
         else uri = GedcomDefinitions.structURI(sup.uri, tag);
@@ -176,8 +175,6 @@ public class GedStruct {
         }
     }
     
-    // accumulate pointed-to-by
-    // convert tag to URI
     // validate payload datatypes and pointed-to types
     
     /**
@@ -202,7 +199,7 @@ public class GedStruct {
             sb.append(' ');
             sb.append(payload.replaceAll("^@|\\n@|\\r@","$0@").replaceAll("\r\n?|\n", "\n"+(level+1)+" CONT "));
         }
-        //if (incoming != null && incoming.size() > 0) sb.append("    <- "+incoming.size());
+        //if (uri != null) sb.append("    <"+uri+">");
         sb.append("\n");
         for(GedStruct s : sub) s.serialize(sb);
     }

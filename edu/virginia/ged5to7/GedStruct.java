@@ -99,16 +99,16 @@ public class GedStruct {
     }
     
     public void tag2uri() {
-        if (Converter5to7.substructures == null) return;
         if (sup == null && tag.equals("HEAD")) uri = "HEAD pseudostructure";
-        else if (sup == null) uri = Converter5to7.substructures.get("", tag);
-        else if (sup.uri != null) uri = Converter5to7.substructures.get(sup.uri, tag);
+        else if (sup == null) uri = GedcomDefinitions.structURI("", tag);
+        else if (sup.uri == null || GedcomDefinitions.structTag(sup.uri) == null)
+            uri = GedcomDefinitions.structURI(null, tag);
+        else uri = GedcomDefinitions.structURI(sup.uri, tag);
         for(GedStruct kid : sub) kid.tag2uri();
     }
     public void uri2tag() {
-        if (Converter5to7.uri2tag == null) return;
         if (uri != null) {
-            String tag2 = Converter5to7.uri2tag.get((sup == null || sup.uri == null) ? "" : sup.uri, uri);
+            String tag2 = GedcomDefinitions.structTag(uri);
             if (tag2 != null) tag = tag2;
         }
         for(GedStruct kid : sub) kid.uri2tag();

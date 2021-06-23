@@ -1,7 +1,22 @@
+# Incomplete Draft
+
 This is an **incomplete, work-in-progress** 5.5.1-to-7.0 converter.
 Some parts are ported directly from the C converter (such as the ANSEL Charset and date and age parsing) while others are built from the ground up. The hope is that having two somewhat-separate implementations will allow me to use the two to test one another, a hope that has already resulted in a few bug fixes in the C version.
 
-Current status:
+# Updating to new versions of GEDCOM
+
+The file `edu/virginia/ged5to7/GedcomDefinitions.java` contains preprocessed copies of the TSV files from <https://github.com/FamilySearch/GEDCOM/tree/main/extracted-files>. When a new (minor or major) version of the spec is released, updates to those files will need to be incorporated by running
+
+```bash
+javac DownloadDefinitions.java
+java DownloadDefinitions
+```
+
+The above will overwrite the file `edu/virginia/ged5to7/GedcomDefinitions.java` with an updated version.
+
+`DownloadDefinitions.java` is otherwise unneeded, and should not be included in distributions of the ged5to7 package.
+
+# Current status
 
 - [x] Detect character encodings, as documented in [ELF Serialisation](https://fhiso.org/TR/elf-serialisation).
 - [x] Convert to UTF-8

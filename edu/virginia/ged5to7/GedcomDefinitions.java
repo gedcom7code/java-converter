@@ -3993,7 +3993,7 @@ public class GedcomDefinitions {
         ,"SOUR"
         ,"SUBM"
         };
-    /** Looks up the tag of a structure URIbased on the GEDCOM 7 spec
+    /** Looks up the tag of a structure URI based on the GEDCOM 7 spec
      * @param uri the URI of the structure type
      * @return the tag of the structure type, or <code>null</code> if unknown
      */
@@ -4372,6 +4372,2835 @@ public class GedcomDefinitions {
         if (idx < 0) return null;
         return payloadVals[idx];
     }
+
+    private static final String[] reqKeys =
+        {"HEAD pseudostructure"
+        ,"https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/CHAN"
+        ,"https://gedcom.io/terms/v7/CREA"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN"
+        ,"https://gedcom.io/terms/v7/FAM-FACT"
+        ,"https://gedcom.io/terms/v7/FILE"
+        ,"https://gedcom.io/terms/v7/FILE-TRAN"
+        ,"https://gedcom.io/terms/v7/GEDC"
+        ,"https://gedcom.io/terms/v7/HEAD-PLAC"
+        ,"https://gedcom.io/terms/v7/HUSB"
+        ,"https://gedcom.io/terms/v7/IDNO"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN"
+        ,"https://gedcom.io/terms/v7/INDI-FACT"
+        ,"https://gedcom.io/terms/v7/MAP"
+        ,"https://gedcom.io/terms/v7/NAME-TRAN"
+        ,"https://gedcom.io/terms/v7/PLAC-TRAN"
+        ,"https://gedcom.io/terms/v7/SLGC"
+        ,"https://gedcom.io/terms/v7/WIFE"
+        ,"https://gedcom.io/terms/v7/ord-STAT"
+        ,"https://gedcom.io/terms/v7/record-OBJE"
+        ,"https://gedcom.io/terms/v7/record-REPO"
+        ,"https://gedcom.io/terms/v7/record-SUBM"
+        };
+    private static final String[][] reqVals =
+        {{"https://gedcom.io/terms/v7/GEDC"}
+        ,{"https://gedcom.io/terms/v7/ROLE"}
+        ,{"https://gedcom.io/terms/v7/DATE-exact"}
+        ,{"https://gedcom.io/terms/v7/DATE-exact"}
+        ,{"https://gedcom.io/terms/v7/TYPE"}
+        ,{"https://gedcom.io/terms/v7/TYPE"}
+        ,{"https://gedcom.io/terms/v7/FORM"}
+        ,{"https://gedcom.io/terms/v7/FORM"}
+        ,{"https://gedcom.io/terms/v7/GEDC-VERS"}
+        ,{"https://gedcom.io/terms/v7/HEAD-PLAC-FORM"}
+        ,{"https://gedcom.io/terms/v7/AGE"}
+        ,{"https://gedcom.io/terms/v7/TYPE"}
+        ,{"https://gedcom.io/terms/v7/TYPE"}
+        ,{"https://gedcom.io/terms/v7/TYPE"}
+        ,{"https://gedcom.io/terms/v7/LATI","https://gedcom.io/terms/v7/LONG"}
+        ,{"https://gedcom.io/terms/v7/LANG"}
+        ,{"https://gedcom.io/terms/v7/LANG"}
+        ,{"https://gedcom.io/terms/v7/FAMC"}
+        ,{"https://gedcom.io/terms/v7/AGE"}
+        ,{"https://gedcom.io/terms/v7/DATE-exact"}
+        ,{"https://gedcom.io/terms/v7/FILE"}
+        ,{"https://gedcom.io/terms/v7/NAME"}
+        ,{"https://gedcom.io/terms/v7/NAME"}
+        };
+    private static final String[] singleKeys =
+        {"HEAD pseudostructure	https://gedcom.io/terms/v7/COPR"
+        ,"HEAD pseudostructure	https://gedcom.io/terms/v7/DEST"
+        ,"HEAD pseudostructure	https://gedcom.io/terms/v7/GEDC"
+        ,"HEAD pseudostructure	https://gedcom.io/terms/v7/HEAD-DATE"
+        ,"HEAD pseudostructure	https://gedcom.io/terms/v7/HEAD-LANG"
+        ,"HEAD pseudostructure	https://gedcom.io/terms/v7/HEAD-PLAC"
+        ,"HEAD pseudostructure	https://gedcom.io/terms/v7/HEAD-SOUR"
+        ,"HEAD pseudostructure	https://gedcom.io/terms/v7/NOTE"
+        ,"HEAD pseudostructure	https://gedcom.io/terms/v7/SCHMA"
+        ,"HEAD pseudostructure	https://gedcom.io/terms/v7/SNOTE"
+        ,"HEAD pseudostructure	https://gedcom.io/terms/v7/SUBM"
+        ,"https://gedcom.io/terms/v7/ADDR	https://gedcom.io/terms/v7/ADR1"
+        ,"https://gedcom.io/terms/v7/ADDR	https://gedcom.io/terms/v7/ADR2"
+        ,"https://gedcom.io/terms/v7/ADDR	https://gedcom.io/terms/v7/ADR3"
+        ,"https://gedcom.io/terms/v7/ADDR	https://gedcom.io/terms/v7/CITY"
+        ,"https://gedcom.io/terms/v7/ADDR	https://gedcom.io/terms/v7/CTRY"
+        ,"https://gedcom.io/terms/v7/ADDR	https://gedcom.io/terms/v7/POST"
+        ,"https://gedcom.io/terms/v7/ADDR	https://gedcom.io/terms/v7/STAE"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/ADOP-FAMC"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/ADOP	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/ADOP-FAMC	https://gedcom.io/terms/v7/FAMC-ADOP"
+        ,"https://gedcom.io/terms/v7/AGE	https://gedcom.io/terms/v7/PHRASE"
+        ,"https://gedcom.io/terms/v7/ALIA	https://gedcom.io/terms/v7/PHRASE"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/HUSB"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/WIFE"
+        ,"https://gedcom.io/terms/v7/ANUL	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/ASSO	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/ASSO	https://gedcom.io/terms/v7/PHRASE"
+        ,"https://gedcom.io/terms/v7/ASSO	https://gedcom.io/terms/v7/ROLE"
+        ,"https://gedcom.io/terms/v7/ASSO	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/ASSO	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/BAPL	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/BAPL	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/BAPL	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/BAPL	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/BAPL	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/BAPL	https://gedcom.io/terms/v7/TEMP"
+        ,"https://gedcom.io/terms/v7/BAPL	https://gedcom.io/terms/v7/ord-STAT"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/BAPM	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/BARM	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/BASM	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/FAMC"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/BIRT	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/BLES	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/BURI	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/CALN	https://gedcom.io/terms/v7/MEDI"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/CAST	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/CHAN	https://gedcom.io/terms/v7/DATE-exact"
+        ,"https://gedcom.io/terms/v7/CHAN	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/CHAN	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/CHIL	https://gedcom.io/terms/v7/PHRASE"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/FAMC"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/CHR	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/CHRA	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/CONF	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/CONL	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/CONL	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/CONL	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/CONL	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/CONL	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/CONL	https://gedcom.io/terms/v7/TEMP"
+        ,"https://gedcom.io/terms/v7/CONL	https://gedcom.io/terms/v7/ord-STAT"
+        ,"https://gedcom.io/terms/v7/CORP	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/CORP	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/CORP	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/CORP	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/CORP	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/CREA	https://gedcom.io/terms/v7/DATE-exact"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/CREM	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/CROP	https://gedcom.io/terms/v7/HEIGHT"
+        ,"https://gedcom.io/terms/v7/CROP	https://gedcom.io/terms/v7/LEFT"
+        ,"https://gedcom.io/terms/v7/CROP	https://gedcom.io/terms/v7/TOP"
+        ,"https://gedcom.io/terms/v7/CROP	https://gedcom.io/terms/v7/WIDTH"
+        ,"https://gedcom.io/terms/v7/DATA	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/DATA	https://gedcom.io/terms/v7/DATA-EVEN"
+        ,"https://gedcom.io/terms/v7/DATA	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/DATA	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/DATA-EVEN	https://gedcom.io/terms/v7/DATA-EVEN-DATE"
+        ,"https://gedcom.io/terms/v7/DATA-EVEN	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/DATA-EVEN-DATE	https://gedcom.io/terms/v7/PHRASE"
+        ,"https://gedcom.io/terms/v7/DATE	https://gedcom.io/terms/v7/PHRASE"
+        ,"https://gedcom.io/terms/v7/DATE	https://gedcom.io/terms/v7/TIME"
+        ,"https://gedcom.io/terms/v7/DATE-exact	https://gedcom.io/terms/v7/TIME"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/DEAT	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/HUSB"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/WIFE"
+        ,"https://gedcom.io/terms/v7/DIV	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/HUSB"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/WIFE"
+        ,"https://gedcom.io/terms/v7/DIVF	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/DSCR	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/EDUC	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/EMIG	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/ENDL	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/ENDL	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/ENDL	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/ENDL	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/ENDL	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/ENDL	https://gedcom.io/terms/v7/TEMP"
+        ,"https://gedcom.io/terms/v7/ENDL	https://gedcom.io/terms/v7/ord-STAT"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/HUSB"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/WIFE"
+        ,"https://gedcom.io/terms/v7/ENGA	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/EXID	https://gedcom.io/terms/v7/EXID-TYPE"
+        ,"https://gedcom.io/terms/v7/EXID	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/HUSB"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/WIFE"
+        ,"https://gedcom.io/terms/v7/FAM-CENS	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/HUSB"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/WIFE"
+        ,"https://gedcom.io/terms/v7/FAM-EVEN	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/HUSB"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/WIFE"
+        ,"https://gedcom.io/terms/v7/FAM-FACT	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/FAM-HUSB	https://gedcom.io/terms/v7/PHRASE"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/HUSB"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/WIFE"
+        ,"https://gedcom.io/terms/v7/FAM-NCHI	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/HUSB"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/WIFE"
+        ,"https://gedcom.io/terms/v7/FAM-RESI	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/FAM-WIFE	https://gedcom.io/terms/v7/PHRASE"
+        ,"https://gedcom.io/terms/v7/FAMC-ADOP	https://gedcom.io/terms/v7/PHRASE"
+        ,"https://gedcom.io/terms/v7/FAMC-STAT	https://gedcom.io/terms/v7/PHRASE"
+        ,"https://gedcom.io/terms/v7/FAMS	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/FAMS	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/FCOM	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/FILE	https://gedcom.io/terms/v7/FILE-TRAN"
+        ,"https://gedcom.io/terms/v7/FILE	https://gedcom.io/terms/v7/FORM"
+        ,"https://gedcom.io/terms/v7/FILE	https://gedcom.io/terms/v7/TITL"
+        ,"https://gedcom.io/terms/v7/FILE-TRAN	https://gedcom.io/terms/v7/FORM"
+        ,"https://gedcom.io/terms/v7/FORM	https://gedcom.io/terms/v7/MEDI"
+        ,"https://gedcom.io/terms/v7/GEDC	https://gedcom.io/terms/v7/GEDC-VERS"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/GRAD	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/HEAD-DATE	https://gedcom.io/terms/v7/TIME"
+        ,"https://gedcom.io/terms/v7/HEAD-PLAC	https://gedcom.io/terms/v7/HEAD-PLAC-FORM"
+        ,"https://gedcom.io/terms/v7/HEAD-SOUR	https://gedcom.io/terms/v7/CORP"
+        ,"https://gedcom.io/terms/v7/HEAD-SOUR	https://gedcom.io/terms/v7/HEAD-SOUR-DATA"
+        ,"https://gedcom.io/terms/v7/HEAD-SOUR	https://gedcom.io/terms/v7/NAME"
+        ,"https://gedcom.io/terms/v7/HEAD-SOUR	https://gedcom.io/terms/v7/VERS"
+        ,"https://gedcom.io/terms/v7/HEAD-SOUR-DATA	https://gedcom.io/terms/v7/COPR"
+        ,"https://gedcom.io/terms/v7/HEAD-SOUR-DATA	https://gedcom.io/terms/v7/DATE-exact"
+        ,"https://gedcom.io/terms/v7/HUSB	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/IDNO	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/IMMI	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/INDI-CENS	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/INDI-EVEN	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/INDI-FACT	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/INDI-FAMC	https://gedcom.io/terms/v7/FAMC-STAT"
+        ,"https://gedcom.io/terms/v7/INDI-FAMC	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/INDI-FAMC	https://gedcom.io/terms/v7/PEDI"
+        ,"https://gedcom.io/terms/v7/INDI-FAMC	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/INDI-NAME	https://gedcom.io/terms/v7/GIVN"
+        ,"https://gedcom.io/terms/v7/INDI-NAME	https://gedcom.io/terms/v7/NAME-TRAN"
+        ,"https://gedcom.io/terms/v7/INDI-NAME	https://gedcom.io/terms/v7/NAME-TYPE"
+        ,"https://gedcom.io/terms/v7/INDI-NAME	https://gedcom.io/terms/v7/NICK"
+        ,"https://gedcom.io/terms/v7/INDI-NAME	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/INDI-NAME	https://gedcom.io/terms/v7/NPFX"
+        ,"https://gedcom.io/terms/v7/INDI-NAME	https://gedcom.io/terms/v7/NSFX"
+        ,"https://gedcom.io/terms/v7/INDI-NAME	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/INDI-NAME	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/INDI-NAME	https://gedcom.io/terms/v7/SPFX"
+        ,"https://gedcom.io/terms/v7/INDI-NAME	https://gedcom.io/terms/v7/SURN"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/INDI-NCHI	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/INDI-RELI	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/INDI-RESI	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/INDI-TITL	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/INIL	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/INIL	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/INIL	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/INIL	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/INIL	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/INIL	https://gedcom.io/terms/v7/TEMP"
+        ,"https://gedcom.io/terms/v7/INIL	https://gedcom.io/terms/v7/ord-STAT"
+        ,"https://gedcom.io/terms/v7/MAP	https://gedcom.io/terms/v7/LATI"
+        ,"https://gedcom.io/terms/v7/MAP	https://gedcom.io/terms/v7/LONG"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/HUSB"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/WIFE"
+        ,"https://gedcom.io/terms/v7/MARB	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/HUSB"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/WIFE"
+        ,"https://gedcom.io/terms/v7/MARC	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/HUSB"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/WIFE"
+        ,"https://gedcom.io/terms/v7/MARL	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/HUSB"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/WIFE"
+        ,"https://gedcom.io/terms/v7/MARR	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/HUSB"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/WIFE"
+        ,"https://gedcom.io/terms/v7/MARS	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/MEDI	https://gedcom.io/terms/v7/PHRASE"
+        ,"https://gedcom.io/terms/v7/NAME-TRAN	https://gedcom.io/terms/v7/GIVN"
+        ,"https://gedcom.io/terms/v7/NAME-TRAN	https://gedcom.io/terms/v7/LANG"
+        ,"https://gedcom.io/terms/v7/NAME-TRAN	https://gedcom.io/terms/v7/NICK"
+        ,"https://gedcom.io/terms/v7/NAME-TRAN	https://gedcom.io/terms/v7/NPFX"
+        ,"https://gedcom.io/terms/v7/NAME-TRAN	https://gedcom.io/terms/v7/NSFX"
+        ,"https://gedcom.io/terms/v7/NAME-TRAN	https://gedcom.io/terms/v7/SPFX"
+        ,"https://gedcom.io/terms/v7/NAME-TRAN	https://gedcom.io/terms/v7/SURN"
+        ,"https://gedcom.io/terms/v7/NAME-TYPE	https://gedcom.io/terms/v7/PHRASE"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/NATI	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/NATU	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/NMR	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/NO	https://gedcom.io/terms/v7/NO-DATE"
+        ,"https://gedcom.io/terms/v7/NO	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/NO	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/NO	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/NO-DATE	https://gedcom.io/terms/v7/PHRASE"
+        ,"https://gedcom.io/terms/v7/NOTE	https://gedcom.io/terms/v7/LANG"
+        ,"https://gedcom.io/terms/v7/NOTE	https://gedcom.io/terms/v7/MIME"
+        ,"https://gedcom.io/terms/v7/NOTE	https://gedcom.io/terms/v7/NOTE-TRAN"
+        ,"https://gedcom.io/terms/v7/NOTE	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/NOTE-TRAN	https://gedcom.io/terms/v7/LANG"
+        ,"https://gedcom.io/terms/v7/NOTE-TRAN	https://gedcom.io/terms/v7/MIME"
+        ,"https://gedcom.io/terms/v7/OBJE	https://gedcom.io/terms/v7/CROP"
+        ,"https://gedcom.io/terms/v7/OBJE	https://gedcom.io/terms/v7/TITL"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/OCCU	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/ORDN	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/PEDI	https://gedcom.io/terms/v7/PHRASE"
+        ,"https://gedcom.io/terms/v7/PLAC	https://gedcom.io/terms/v7/EXID"
+        ,"https://gedcom.io/terms/v7/PLAC	https://gedcom.io/terms/v7/LANG"
+        ,"https://gedcom.io/terms/v7/PLAC	https://gedcom.io/terms/v7/MAP"
+        ,"https://gedcom.io/terms/v7/PLAC	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/PLAC	https://gedcom.io/terms/v7/PLAC-FORM"
+        ,"https://gedcom.io/terms/v7/PLAC	https://gedcom.io/terms/v7/PLAC-TRAN"
+        ,"https://gedcom.io/terms/v7/PLAC	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/PLAC-TRAN	https://gedcom.io/terms/v7/LANG"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/PROB	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/PROP	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/REFN	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/REPO	https://gedcom.io/terms/v7/CALN"
+        ,"https://gedcom.io/terms/v7/REPO	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/REPO	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/RETI	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/ROLE	https://gedcom.io/terms/v7/PHRASE"
+        ,"https://gedcom.io/terms/v7/SCHMA	https://gedcom.io/terms/v7/TAG"
+        ,"https://gedcom.io/terms/v7/SDATE	https://gedcom.io/terms/v7/PHRASE"
+        ,"https://gedcom.io/terms/v7/SDATE	https://gedcom.io/terms/v7/TIME"
+        ,"https://gedcom.io/terms/v7/SLGC	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/SLGC	https://gedcom.io/terms/v7/FAMC"
+        ,"https://gedcom.io/terms/v7/SLGC	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/SLGC	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/SLGC	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/SLGC	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/SLGC	https://gedcom.io/terms/v7/TEMP"
+        ,"https://gedcom.io/terms/v7/SLGC	https://gedcom.io/terms/v7/ord-STAT"
+        ,"https://gedcom.io/terms/v7/SLGS	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/SLGS	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/SLGS	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/SLGS	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/SLGS	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/SLGS	https://gedcom.io/terms/v7/TEMP"
+        ,"https://gedcom.io/terms/v7/SLGS	https://gedcom.io/terms/v7/ord-STAT"
+        ,"https://gedcom.io/terms/v7/SOUR	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/SOUR	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/SOUR	https://gedcom.io/terms/v7/PAGE"
+        ,"https://gedcom.io/terms/v7/SOUR	https://gedcom.io/terms/v7/QUAY"
+        ,"https://gedcom.io/terms/v7/SOUR	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/SOUR	https://gedcom.io/terms/v7/SOUR-DATA"
+        ,"https://gedcom.io/terms/v7/SOUR	https://gedcom.io/terms/v7/SOUR-EVEN"
+        ,"https://gedcom.io/terms/v7/SOUR-DATA	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/SOUR-DATA	https://gedcom.io/terms/v7/TEXT"
+        ,"https://gedcom.io/terms/v7/SOUR-EVEN	https://gedcom.io/terms/v7/PHRASE"
+        ,"https://gedcom.io/terms/v7/SOUR-EVEN	https://gedcom.io/terms/v7/ROLE"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/SSN	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/TEXT	https://gedcom.io/terms/v7/LANG"
+        ,"https://gedcom.io/terms/v7/TEXT	https://gedcom.io/terms/v7/MIME"
+        ,"https://gedcom.io/terms/v7/WIFE	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/AGE"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/AGNC"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/CAUS"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/DATE"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/PLAC"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/RELI"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/SDATE"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/TYPE"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/WILL	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/ord-STAT	https://gedcom.io/terms/v7/DATE-exact"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/ANUL"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/CHAN"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/CHIL"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/CREA"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/DIV"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/DIVF"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/ENGA"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/EXID"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/FAM-CENS"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/FAM-EVEN"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/FAM-FACT"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/FAM-HUSB"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/FAM-NCHI"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/FAM-RESI"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/FAM-WIFE"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/MARB"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/MARC"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/MARL"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/MARR"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/MARS"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/NO"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/REFN"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/SLGS"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/SUBM"
+        ,"https://gedcom.io/terms/v7/record-FAM	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/ADOP"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/ALIA"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/ANCI"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/ASSO"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/BAPL"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/BAPM"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/BARM"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/BASM"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/BIRT"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/BLES"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/BURI"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/CAST"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/CHAN"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/CHR"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/CHRA"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/CONF"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/CONL"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/CREA"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/CREM"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/DEAT"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/DESI"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/DSCR"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/EDUC"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/EMIG"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/ENDL"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/EXID"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/FAMS"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/FCOM"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/GRAD"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/IDNO"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/IMMI"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/INDI-CENS"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/INDI-EVEN"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/INDI-FACT"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/INDI-FAMC"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/INDI-NAME"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/INDI-NCHI"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/INDI-RELI"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/INDI-RESI"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/INDI-TITL"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/INIL"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/NATI"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/NATU"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/NMR"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/NO"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/OCCU"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/ORDN"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/PROB"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/PROP"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/REFN"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/RETI"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/SEX"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/SLGC"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/SSN"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/SUBM"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/record-INDI	https://gedcom.io/terms/v7/WILL"
+        ,"https://gedcom.io/terms/v7/record-OBJE	https://gedcom.io/terms/v7/CHAN"
+        ,"https://gedcom.io/terms/v7/record-OBJE	https://gedcom.io/terms/v7/CREA"
+        ,"https://gedcom.io/terms/v7/record-OBJE	https://gedcom.io/terms/v7/EXID"
+        ,"https://gedcom.io/terms/v7/record-OBJE	https://gedcom.io/terms/v7/FILE"
+        ,"https://gedcom.io/terms/v7/record-OBJE	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/record-OBJE	https://gedcom.io/terms/v7/REFN"
+        ,"https://gedcom.io/terms/v7/record-OBJE	https://gedcom.io/terms/v7/RESN"
+        ,"https://gedcom.io/terms/v7/record-OBJE	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/record-OBJE	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/record-OBJE	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/record-REPO	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/record-REPO	https://gedcom.io/terms/v7/CHAN"
+        ,"https://gedcom.io/terms/v7/record-REPO	https://gedcom.io/terms/v7/CREA"
+        ,"https://gedcom.io/terms/v7/record-REPO	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/record-REPO	https://gedcom.io/terms/v7/EXID"
+        ,"https://gedcom.io/terms/v7/record-REPO	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/record-REPO	https://gedcom.io/terms/v7/NAME"
+        ,"https://gedcom.io/terms/v7/record-REPO	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/record-REPO	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/record-REPO	https://gedcom.io/terms/v7/REFN"
+        ,"https://gedcom.io/terms/v7/record-REPO	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/record-REPO	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/record-REPO	https://gedcom.io/terms/v7/WWW"
+        ,"https://gedcom.io/terms/v7/record-SNOTE	https://gedcom.io/terms/v7/CHAN"
+        ,"https://gedcom.io/terms/v7/record-SNOTE	https://gedcom.io/terms/v7/CREA"
+        ,"https://gedcom.io/terms/v7/record-SNOTE	https://gedcom.io/terms/v7/EXID"
+        ,"https://gedcom.io/terms/v7/record-SNOTE	https://gedcom.io/terms/v7/LANG"
+        ,"https://gedcom.io/terms/v7/record-SNOTE	https://gedcom.io/terms/v7/MIME"
+        ,"https://gedcom.io/terms/v7/record-SNOTE	https://gedcom.io/terms/v7/NOTE-TRAN"
+        ,"https://gedcom.io/terms/v7/record-SNOTE	https://gedcom.io/terms/v7/REFN"
+        ,"https://gedcom.io/terms/v7/record-SNOTE	https://gedcom.io/terms/v7/SOUR"
+        ,"https://gedcom.io/terms/v7/record-SNOTE	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/record-SOUR	https://gedcom.io/terms/v7/ABBR"
+        ,"https://gedcom.io/terms/v7/record-SOUR	https://gedcom.io/terms/v7/AUTH"
+        ,"https://gedcom.io/terms/v7/record-SOUR	https://gedcom.io/terms/v7/CHAN"
+        ,"https://gedcom.io/terms/v7/record-SOUR	https://gedcom.io/terms/v7/CREA"
+        ,"https://gedcom.io/terms/v7/record-SOUR	https://gedcom.io/terms/v7/DATA"
+        ,"https://gedcom.io/terms/v7/record-SOUR	https://gedcom.io/terms/v7/EXID"
+        ,"https://gedcom.io/terms/v7/record-SOUR	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/record-SOUR	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/record-SOUR	https://gedcom.io/terms/v7/PUBL"
+        ,"https://gedcom.io/terms/v7/record-SOUR	https://gedcom.io/terms/v7/REFN"
+        ,"https://gedcom.io/terms/v7/record-SOUR	https://gedcom.io/terms/v7/REPO"
+        ,"https://gedcom.io/terms/v7/record-SOUR	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/record-SOUR	https://gedcom.io/terms/v7/TEXT"
+        ,"https://gedcom.io/terms/v7/record-SOUR	https://gedcom.io/terms/v7/TITL"
+        ,"https://gedcom.io/terms/v7/record-SOUR	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/record-SUBM	https://gedcom.io/terms/v7/ADDR"
+        ,"https://gedcom.io/terms/v7/record-SUBM	https://gedcom.io/terms/v7/CHAN"
+        ,"https://gedcom.io/terms/v7/record-SUBM	https://gedcom.io/terms/v7/CREA"
+        ,"https://gedcom.io/terms/v7/record-SUBM	https://gedcom.io/terms/v7/EMAIL"
+        ,"https://gedcom.io/terms/v7/record-SUBM	https://gedcom.io/terms/v7/EXID"
+        ,"https://gedcom.io/terms/v7/record-SUBM	https://gedcom.io/terms/v7/FAX"
+        ,"https://gedcom.io/terms/v7/record-SUBM	https://gedcom.io/terms/v7/NAME"
+        ,"https://gedcom.io/terms/v7/record-SUBM	https://gedcom.io/terms/v7/NOTE"
+        ,"https://gedcom.io/terms/v7/record-SUBM	https://gedcom.io/terms/v7/OBJE"
+        ,"https://gedcom.io/terms/v7/record-SUBM	https://gedcom.io/terms/v7/PHON"
+        ,"https://gedcom.io/terms/v7/record-SUBM	https://gedcom.io/terms/v7/REFN"
+        ,"https://gedcom.io/terms/v7/record-SUBM	https://gedcom.io/terms/v7/SNOTE"
+        ,"https://gedcom.io/terms/v7/record-SUBM	https://gedcom.io/terms/v7/SUBM-LANG"
+        ,"https://gedcom.io/terms/v7/record-SUBM	https://gedcom.io/terms/v7/UID"
+        ,"https://gedcom.io/terms/v7/record-SUBM	https://gedcom.io/terms/v7/WWW"
+        };
+    private static final boolean[] singleVals =
+        {true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,true
+        ,false
+        ,true
+        ,true
+        ,true
+        ,false
+        ,false
+        ,false
+        ,true
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        ,false
+        };
+    public static String[] requiredSubstructures(String struct) {
+        if (struct == null) return new String[0];
+        int idx = binarySearch(reqKeys, struct);
+        if (idx < 0) return new String[0];
+        return reqVals[idx];
+    }
+    public static boolean justOne(String ctx, String uri) {
+        if (ctx == null) return false;
+        String key = ctx+'\t'+uri;
+        int idx = binarySearch(singleKeys, key);
+        if (idx < 0) return false;
+        return singleVals[idx];
+    }
+
     private static final String[] langKeys =
         {"Afrikaans"
         ,"Albanian"

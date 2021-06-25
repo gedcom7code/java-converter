@@ -16,6 +16,26 @@ public class DownloadDefinitions {
         }
         out.println("        };");
     }
+    static void printBooleanArrayCode(Iterable<Boolean> toPrint, String name, PrintWriter out) {
+        out.println("    private static final boolean[] "+name+" =");
+        char before = '{';
+        for(boolean val : toPrint) {
+            out.println("        "+before+val);
+            before = ',';
+        }
+        out.println("        };");
+    }
+    static void printStringArrayArrayCode(Iterable<? extends Iterable<String>> toPrint, String name, PrintWriter out) {
+        out.println("    private static final String[][] "+name+" =");
+        char before = '{';
+        for(Iterable<String> val : toPrint) {
+            out.println("        "+before+"{\""+String.join("\",\"", val)+"\"}");
+            before = ',';
+        }
+        out.println("        };");
+    }
+
+
     static TreeMap<String,String> readTSV(Scanner src) {
         TreeMap<String,String> ans = new TreeMap<String,String>();
         while(src.hasNext()) {
@@ -145,6 +165,46 @@ public class DownloadDefinitions {
             dest.println("        if (idx < 0) return null;");
             dest.println("        return payloadVals[idx];");
             dest.println("    }");
+
+            dest.println();
+
+            // cardinalities
+            s = new Scanner(new URL("https://github.com/FamilySearch/GEDCOM/raw/main/extracted-files/cardinalities.tsv").openStream());
+            known = readTSV(s);
+            TreeMap<String, TreeSet<String>> required = new TreeMap<String,TreeSet<String>>();
+            TreeMap<String, Boolean> singular = new TreeMap<String,Boolean>();
+            known.forEach((k,v) -> {
+                if (v.charAt(1) == '1') {
+                    String[] k2 = k.split("\t");
+                    required.putIfAbsent(k2[0], new TreeSet<String>());
+                    required.get(k2[0]).add(k2[1]);
+                }
+                singular.put(k, v.charAt(3) == '1');
+            });
+            printStringArrayCode(required.keySet(), "reqKeys", dest);
+            printStringArrayArrayCode(required.values(), "reqVals", dest);
+            printStringArrayCode(singular.keySet(), "singleKeys", dest);
+            printBooleanArrayCode(singular.values(), "singleVals", dest);
+            
+            dest.println("    public static String[] requiredSubstructures(String struct) {");
+            dest.println("        if (struct == null) return new String[0];");
+            dest.println("        int idx = binarySearch(reqKeys, struct);");
+            dest.println("        if (idx < 0) return new String[0];");
+            dest.println("        return reqVals[idx];");
+            dest.println("    }");
+            
+            dest.println("    public static boolean justOne(String ctx, String uri) {");
+            dest.println("        if (ctx == null) return false;");
+            dest.println("        String key = ctx+'\\t'+uri;");
+            dest.println("        int idx = binarySearch(singleKeys, key);");
+            dest.println("        if (idx < 0) return false;");
+            dest.println("        return singleVals[idx];");
+            dest.println("    }");
+            
+            
+            
+            dest.println();
+            
             
             // FHISO's language mapping
             s = new Scanner(new URL("https://github.com/fhiso/legacy-format/raw/master/languages.tsv").openStream());
@@ -161,10 +221,6 @@ public class DownloadDefinitions {
             dest.println("        if (idx < 0) return null;");
             dest.println("        return langVals[idx].replace(\"*\",\"\");");
             dest.println("    }");
-            
-            
-            
-            
             
             dest.println("}");
         }

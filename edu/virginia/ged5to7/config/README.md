@@ -5,4 +5,4 @@ javac DownloadDefinitions.java
 java DownloadDefinitions
 ```
 
-from the [repository root directory](../../../../). It should not be edited by hand.
+from the [repository root directory](https://github.com/gedcom7code/java-converter/). It should not be edited by hand.

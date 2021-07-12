@@ -42,7 +42,7 @@ The above will overwrite the file `edu/virginia/ged5to7/GedcomDefinitions.java` 
 - [x] change `OBJE` with no payload to pointer to new `OBJE` record
 - [x] change `NOTE` record or with pointer payload into `SNOTE`
     - [x] use heuristic to change some pointer-`NOTE` to nested-`NOTE` instead of `SNOTE`
-- [ ] Convert `LANG` payloads to BCP 47 tags, using [FHISO's mapping](https://github.com/fhiso/legacy-format/blob/master/languages.tsv)
+- [x] Convert `LANG` payloads to BCP 47 tags, using [FHISO's mapping](https://github.com/fhiso/legacy-format/blob/master/languages.tsv)
 - [ ] Convert `MEDI`.`FORM` payloads to media types
 - [ ] Enumerated values
     - [ ] Normalize case

@@ -99,15 +99,16 @@ public class GedStruct {
     }
     
     public void tag2uri() {
-        if (sup == null) uri = GedcomDefinitions.structURI("", tag);
-        else if (sup.uri == null || GedcomDefinitions.structTag(sup.uri) == null)
-            uri = GedcomDefinitions.structURI(null, tag);
-        else uri = GedcomDefinitions.structURI(sup.uri, tag);
+        GedcomDefinitions def = GedcomDefinitions.getDefinitions();
+        if (sup == null) uri = def.structURI("", tag);
+        else if (sup.uri == null || def.structTag(sup.uri) == null)
+            uri = def.structURI(null, tag);
+        else uri = def.structURI(sup.uri, tag);
         for(GedStruct kid : sub) kid.tag2uri();
     }
     public void uri2tag() {
         if (uri != null) {
-            String tag2 = GedcomDefinitions.structTag(uri);
+            String tag2 = GedcomDefinitions.getDefinitions().structTag(uri);
             if (tag2 != null) tag = tag2;
         }
         for(GedStruct kid : sub) kid.uri2tag();

@@ -22,6 +22,11 @@ public class GedStruct {
         "@#D([^@]*)@ ?|" +
         "@#([^D@][^@]*)@ ?"
         );
+    public final static GedStruct VOID;
+    static {
+        VOID = new GedStruct(null, "");
+        VOID.id = "@VOID@";
+    }
     
     /**
      * Parse a line from a GEDCOM file into a basic GedStruct
@@ -63,7 +68,7 @@ public class GedStruct {
         if (tag.indexOf(':') < 0) this.tag = tag;
         else { this.uri = tag; this.uri2tag(); }
         this.pointsTo = payload;
-        if (payload == null) this.payload = "@VOID@";
+        if (payload == null) this.pointsTo = VOID;
         else if (payload.incoming != null) payload.incoming.add(this);
         else {
             payload.incoming = new LinkedList<GedStruct>();
@@ -98,13 +103,16 @@ public class GedStruct {
         return ans;
     }
     
-    public void tag2uri() {
+    public void tag2uri() { this.tag2uri(true); }
+    public void tag2uri(boolean replaceSelf) {
         GedcomDefinitions def = GedcomDefinitions.getDefinitions();
-        if (sup == null) uri = def.structURI("", tag);
-        else if (sup.uri == null || def.structTag(sup.uri) == null)
-            uri = def.structURI(null, tag);
-        else uri = def.structURI(sup.uri, tag);
-        for(GedStruct kid : sub) kid.tag2uri();
+        if (uri == null || replaceSelf) {
+            if (sup == null) uri = def.structURI("", tag);
+            else if (sup.uri == null || def.structTag(sup.uri) == null)
+                uri = def.structURI(null, tag);
+            else uri = def.structURI(sup.uri, tag);
+        }
+        for(GedStruct kid : sub) kid.tag2uri(replaceSelf);
     }
     public void uri2tag() {
         if (uri != null) {
@@ -140,7 +148,7 @@ public class GedStruct {
      * populates the <code>pointsTo</code> fields of this struct
      * and its substructures. If <code>cleanup</code> is 
      * <code>true</code>, also clears old xref_id payloads and
-     * replaces dead pointers with <code"@VOID"</code>.
+     * replaces dead pointers with <code"@VOID@"</code>.
      */
     @SuppressWarnings({"unchecked"})
     public void convertPointers(Map<String,GedStruct> xref, boolean cleanup, Class<?> cachetype) {
@@ -159,8 +167,8 @@ public class GedStruct {
                 pointsTo = to;
                 if (cleanup) payload = null;
             } else if (cleanup && FUZZY_XREF.matcher(payload).matches()) {
+                pointsTo = VOID;
                 // TO DO: log this workaround
-                payload = "@VOID@";
             }
         }
         for(GedStruct s : sub) s.convertPointers(xref, cleanup, cachetype);
@@ -173,6 +181,8 @@ public class GedStruct {
         if (pointsTo != null) {
             if (pointsTo.incoming == null) pointsTo.incoming = new LinkedList<GedStruct>();
             pointsTo.incoming.add(this);
+        } else {
+            pointsTo = VOID;
         }
     }
     

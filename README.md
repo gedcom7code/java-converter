@@ -47,12 +47,7 @@ The above will overwrite the files in `edu/virginia/ged5to7/config/` with update
 - [x] change `NOTE` record or with pointer payload into `SNOTE`
     - [x] use heuristic to change some pointer-`NOTE` to nested-`NOTE` instead of `SNOTE`
 - [x] Convert `LANG` payloads to BCP 47 tags, using [FHISO's mapping](https://github.com/fhiso/legacy-format/blob/master/languages.tsv)
-- [ ] Convert `MEDI`.`FORM` payloads to media types
-- [ ] Enumerated values
-    - [ ] Normalize case
-    - [ ] Convert user-text to `PHRASE`s
-- [ ] Convert `FONE` and `ROMN` to `TRAN` and their `TYPE`s to BCP-47 `LANG`s
-- [ ] tag renaming, including
+- [x] tag renaming, including
     - `EMAI`, `_EMAIL` → `EMAIL`
     - `FORM`.`TYPE` → `FORM`.`MEDI`
     - (deferred) `_SDATE` → `SDATE` -- `_SDATE` is also used as "accessed at" date for web resources by some applications so this change is not universally correct
@@ -60,10 +55,15 @@ The above will overwrite the files in `edu/virginia/ged5to7/config/` with update
     - `_ASSO` → `ASSO`
     - `_CRE`, `_CREAT` → `CREA`
     - `_DATE` → `DATE`
+    - `ASSO`.`RELA` → `ASSO`.`ROLE`
     - other?
-- [ ] `ASSO`.`RELA` → `ASSO`.`ROLE` (changing payload OTHER + PHRASE)
 - [ ] change `RFN`, `RIN`, and `AFN` to `EXID`
 - [ ] change `_FSFTID`, `_APID` to `EXID`
+- [ ] Convert `MEDI`.`FORM` payloads to media types
+- [ ] Enumerated values
+    - [ ] Normalize case
+    - [ ] Convert user-text to `PHRASE`s
+- [ ] Convert `FONE` and `ROMN` to `TRAN` and their `TYPE`s to BCP-47 `LANG`s
 - [ ] remove `SUBN`, `HEAD`.`FILE`, `HEAD`.`CHAR`
     - (deferred) `HEAD`.`PLAC` was originally on this list, but has been deferred to a later version
 - [ ] change `FILE` payloads into URLs

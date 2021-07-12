@@ -52,12 +52,14 @@ public class Converter5to7 {
         for(GedStruct s : records) s.tag2uri();
         
         Filter[] filters = {
+            new RenameFilter(),
             new AgeDateFilter(),
             new VersionFilter(),
             new NoteFilter(),
             new SourceFilter(),
             new ObjectFilter(),
             new LanguageFilter(),
+            new EnumFilter(),
         };
         for(Filter f : filters) {
             java.util.LinkedList<GedStruct> created = new java.util.LinkedList<GedStruct>();

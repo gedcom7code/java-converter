@@ -57,12 +57,12 @@ The above will overwrite the files in `edu/virginia/ged5to7/config/` with update
     - `_DATE` → `DATE`
     - `ASSO`.`RELA` → `ASSO`.`ROLE`
     - other?
-- [ ] change `RFN`, `RIN`, and `AFN` to `EXID`
-- [ ] change `_FSFTID`, `_APID` to `EXID`
+- [x] Enumerated values
+    - [x] Normalize case
+    - [x] Convert user-text to `PHRASE`s
+- [x] change `RFN`, `RIN`, and `AFN` to `EXID`
+- [x] change `_FSFTID`, `_APID` to `EXID`
 - [ ] Convert `MEDI`.`FORM` payloads to media types
-- [ ] Enumerated values
-    - [ ] Normalize case
-    - [ ] Convert user-text to `PHRASE`s
 - [ ] Convert `FONE` and `ROMN` to `TRAN` and their `TYPE`s to BCP-47 `LANG`s
 - [ ] remove `SUBN`, `HEAD`.`FILE`, `HEAD`.`CHAR`
     - (deferred) `HEAD`.`PLAC` was originally on this list, but has been deferred to a later version

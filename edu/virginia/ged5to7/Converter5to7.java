@@ -60,6 +60,7 @@ public class Converter5to7 {
             new ObjectFilter(),
             new LanguageFilter(),
             new EnumFilter(),
+            new ExidFilter(),
         };
         for(Filter f : filters) {
             java.util.LinkedList<GedStruct> created = new java.util.LinkedList<GedStruct>();

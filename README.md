@@ -5,14 +5,18 @@ Some parts are ported directly from the C converter (such as the ANSEL Charset a
 
 # Updating to new versions of GEDCOM
 
-The file `edu/virginia/ged5to7/GedcomDefinitions.java` contains preprocessed copies of the TSV files from <https://github.com/FamilySearch/GEDCOM/tree/main/extracted-files>. When a new (minor or major) version of the spec is released, updates to those files will need to be incorporated by running
+The file `edu/virginia/ged5to7/config/` contains copies of the TSV files
+from <https://github.com/FamilySearch/GEDCOM/>,
+<https://github.com/fhiso/legacy-format/>,
+and <https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry>.
+These can be updated by running
 
 ```bash
 javac DownloadDefinitions.java
 java DownloadDefinitions
 ```
 
-The above will overwrite the file `edu/virginia/ged5to7/GedcomDefinitions.java` with an updated version.
+The above will overwrite the files in `edu/virginia/ged5to7/config/` with updated versions.
 
 `DownloadDefinitions.java` is otherwise unneeded, and should not be included in distributions of the ged5to7 package.
 

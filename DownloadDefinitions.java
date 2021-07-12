@@ -36,6 +36,8 @@ public class DownloadDefinitions {
                     else if (line.startsWith("Subtag: ")) tag = line.substring(8);
                     else if (isLang && line.startsWith("Description: ")) {
                         String key = line.substring(13);
+                        // key = key.replaceAll(" \\(.*", ""); // change "Modern Greek (1453-)" to "Modern Greek" but also conflates arr "Karo (Brazil)" and kxh "Karo (Ethiopia)" so disabled for now
+                        key = key.replaceAll(" language.*", ""); // change "Bihari languages" to "Bihari"
                         fos.write((key+"\t"+tag+"\n").getBytes("UTF-8"));
                     }
                 }

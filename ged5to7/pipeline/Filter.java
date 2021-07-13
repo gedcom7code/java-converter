@@ -1,5 +1,5 @@
-package edu.virginia.ged5to7.pipeline;
-import edu.virginia.ged5to7.GedStruct;
+package ged5to7.pipeline;
+import ged5to7.GedStruct;
 
 public interface Filter {
     /**

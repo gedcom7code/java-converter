@@ -1,7 +1,7 @@
-package edu.virginia.ged5to7.pipeline;
-import edu.virginia.ged5to7.GedStruct;
-import edu.virginia.ged5to7.GedAge;
-import edu.virginia.ged5to7.GedDateValue;
+package ged5to7.pipeline;
+import ged5to7.GedStruct;
+import ged5to7.GedAge;
+import ged5to7.GedDateValue;
 
 public class AgeDateFilter implements Filter {
     public java.util.Collection<GedStruct> update(GedStruct s) {

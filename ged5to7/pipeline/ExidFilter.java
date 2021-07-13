@@ -1,6 +1,6 @@
-package edu.virginia.ged5to7.pipeline;
-import edu.virginia.ged5to7.GedStruct;
-import edu.virginia.ged5to7.GedcomDefinitions;
+package ged5to7.pipeline;
+import ged5to7.GedStruct;
+import ged5to7.GedcomDefinitions;
 
 public class ExidFilter implements Filter {
     public java.util.Collection<GedStruct> update(GedStruct s) {

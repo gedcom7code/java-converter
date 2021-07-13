@@ -1,4 +1,4 @@
-package edu.virginia.ged5to7;
+package ged5to7;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -11,7 +11,7 @@ import java.util.TreeMap;
 import java.util.Map;
 import java.util.Iterator;
 
-import edu.virginia.ged5to7.pipeline.*;
+import ged5to7.pipeline.*;
 
 public class Converter5to7 {
     private int lastID;

@@ -1,4 +1,4 @@
-package edu.virginia.ged5to7;
+package ged5to7;
 
 import java.util.HashMap;
 import java.util.HashSet;

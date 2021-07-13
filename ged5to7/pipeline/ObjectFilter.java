@@ -1,6 +1,6 @@
-package edu.virginia.ged5to7.pipeline;
+package ged5to7.pipeline;
 
-import edu.virginia.ged5to7.GedStruct;
+import ged5to7.GedStruct;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Iterator;

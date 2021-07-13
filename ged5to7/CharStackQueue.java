@@ -1,4 +1,4 @@
-package edu.virginia.ged5to7;
+package ged5to7;
 
 /**
  * Java's String, CharSequence, CharBuffer, and Stream all make various simple

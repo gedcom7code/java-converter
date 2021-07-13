@@ -1,4 +1,4 @@
-package edu.virginia.ged5to7;
+package ged5to7;
 
 import java.nio.CharBuffer;
 import java.nio.ByteBuffer;

@@ -39,9 +39,6 @@ The above will overwrite the files in `edu/virginia/ged5to7/config/` with update
     - [x] change age words to canonical forms (stillborn as `0y`, child as `< 8y`, infant as `< 1y`) with `PHRASE`s
     - [x] Normalize spacing in `AGE` payloads
     - [x] add missing `y`
-- [x] Change any illegal tag `XYZ` into `_EXT_XYZ`
-    - [ ] or to `_XYZ` and add a SCHMA entry for it
-    - [ ] leave unchanged under extensions
 - [x] change `SOUR` with text payload into pointer to `SOUR` with `NOTE`
 - [x] change `OBJE` with no payload to pointer to new `OBJE` record
 - [x] change `NOTE` record or with pointer payload into `SNOTE`
@@ -62,15 +59,17 @@ The above will overwrite the files in `edu/virginia/ged5to7/config/` with update
     - [x] Convert user-text to `PHRASE`s
 - [x] change `RFN`, `RIN`, and `AFN` to `EXID`
 - [x] change `_FSFTID`, `_APID` to `EXID`
-- [ ] Convert `MEDI`.`FORM` payloads to media types
-- [ ] Convert `FONE` and `ROMN` to `TRAN` and their `TYPE`s to BCP-47 `LANG`s
-- [ ] remove `SUBN`, `HEAD`.`FILE`, `HEAD`.`CHAR`
-    - (deferred) `HEAD`.`PLAC` was originally on this list, but has been deferred to a later version
-- [ ] change `FILE` payloads into URLs
-    - [ ] Windows-style `\` becomes `/`
-    - [ ] Windows diver letter `C:\WINDOWS` becomes `file:///c:/WINDOWS`
-    - [ ] POSIX-stye `/User/foo` becomes `file:///User/foo`
+- [x] Convert `MEDI`.`FORM` payloads to media types
+- [x] Convert `FONE` and `ROMN` to `TRAN` and their `TYPE`s to BCP-47 `LANG`s
+- [x] change `FILE` payloads into URLs
+    - [x] Windows-style `\` becomes `/`
+    - [x] Windows diver letter `C:\WINDOWS` becomes `file:///c:/WINDOWS`
+    - [x] POSIX-stye `/User/foo` becomes `file:///User/foo`
+- [x] remove `SUBN`, `HEAD`.`FILE`, `HEAD`.`CHAR`
 - [x] update the `GEDC`.`VERS` to `7.0`
+- [x] Change any illegal tag `XYZ` into `_EXT_XYZ`
+    - [ ] or to `_XYZ` and add a SCHMA entry for it
+    - [ ] leave unchanged under extensions
 - [ ] (extra) change string-valued `INDI`.`ALIA` into `NAME` with `TYPE` `AKA`
 - [ ] (5.5) change base64-encoded OBJE into GEDZIP
 - [ ] add `SCHMA` for all used known extensions

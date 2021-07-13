@@ -59,8 +59,11 @@ public class Converter5to7 {
             new SourceFilter(),
             new ObjectFilter(),
             new LanguageFilter(),
+            new TranFilter(),
             new EnumFilter(),
             new ExidFilter(),
+            new FileFilter(),
+            new MediaTypeFilter(),
         };
         for(Filter f : filters) {
             java.util.LinkedList<GedStruct> created = new java.util.LinkedList<GedStruct>();

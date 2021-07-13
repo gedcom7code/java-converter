@@ -41,7 +41,7 @@ public class GedStruct {
         level = Integer.parseInt(m.group(1));
         if (m.group(2) != null) {
             id = m.group(2).toUpperCase();
-            if (id == "@VOID@") throw new IllegalArgumentException("@VOID@ must not be used as a record identifier in:\n"+line);
+            if ("@VOID@".equals(id)) throw new IllegalArgumentException("@VOID@ must not be used as a record identifier in:\n"+line);
         }
         tag = m.group(3).toUpperCase();
         payload = fixAtSign(m.group(4));

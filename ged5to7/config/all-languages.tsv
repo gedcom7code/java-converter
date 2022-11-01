@@ -419,6 +419,7 @@ Aja (Benin)	ajg
 Ajië	aji
 Andajin	ajn
 South Levantine Arabic	ajp
+Algerian Jewish Sign Language	ajs
 Judeo-Tunisian Arabic	ajt
 Judeo-Moroccan Arabic	aju
 Ajawa	ajw
@@ -1147,6 +1148,7 @@ Bodo (Central African Republic)	boy
 Tiéyaxo Bozo	boz
 Daakaka	bpa
 Barbacoas	bpb
+Mbuk	bpc
 Banda-Banda	bpd
 Bauni	bpe
 Bonggo	bpg
@@ -1198,6 +1200,7 @@ Baangi	bqx
 Bengkala Sign Language	bqy
 Bakaka	bqz
 Braj	bra
+Brao	brb
 Lave	brb
 Berbice Creole Dutch	brc
 Baraamu	brd
@@ -1628,6 +1631,7 @@ Lalana Chinantec	cnl
 Con	cno
 Northern Ping Chinese	cnp
 Northern Pinghua	cnp
+Chung	cnq
 Montenegrin	cnr
 Central Asmat	cns
 Tepetotutla Chinantec	cnt
@@ -2040,6 +2044,7 @@ Danish Sign Language	dsl
 Dusner	dsn
 Desiya	dso
 Tadaksahak	dsq
+Mardin Sign Language	dsz
 Daur	dta
 Labuk-Kinabatangan Kadazan	dtb
 Ditidaht	dtd
@@ -2128,6 +2133,7 @@ Efe	efe
 Efik	efi
 Ega	ega
 Emilian	egl
+Benamanga	egm
 Eggon	ego
 Egyptian	egx
 Egyptian (Ancient)	egy
@@ -2190,7 +2196,7 @@ Enga	enq
 Emumu	enr
 Emem	enr
 Enu	enu
-Enwan (Edu State)	env
+Enwan (Edo State)	env
 Enwan (Akwa Ibom State)	enw
 Enxet	enx
 Beti (Côte d'Ivoire)	eot
@@ -2273,6 +2279,7 @@ Pilipino	fil
 Fipa	fip
 Firan	fir
 Tornedalen Finnish	fit
+Meänkieli	fit
 Finno-Ugrian	fiu
 Fiwaga	fiw
 Kirya-Konzəl	fkk
@@ -2573,6 +2580,7 @@ Gorontalo	gor
 Gronings	gos
 Gothic	got
 Gavar	gou
+Goo	gov
 Gorowa	gow
 Gobu	gox
 Goundo	goy
@@ -3009,6 +3017,7 @@ Imonda	imn
 Imbongu	imo
 Imroing	imr
 Marsian	ims
+Imotong	imt
 Milyan	imy
 Inga	inb
 Indic	inc
@@ -4024,6 +4033,7 @@ Wala	lgl
 Lega-Mwenga	lgm
 T'apo	lgn
 Opuuo	lgn
+Lango (South Sudan)	lgo
 Logba	lgq
 Lengo	lgr
 Pahi	lgt
@@ -4180,6 +4190,7 @@ Lepki	lpe
 Long Phuri Naga	lpn
 Lipo	lpo
 Lopit	lpx
+Logir	lqr
 Rara Bakati'	lra
 Northern Luri	lrc
 Laurentian	lre
@@ -4199,6 +4210,8 @@ Lemerig	lrz
 Lasgerdi	lsa
 Burundian Sign Language	lsb
 Langue des Signes Burundaise	lsb
+Albarradas Sign Language	lsc
+Lengua de señas Albarradas	lsc
 Lishana Deni	lsd
 Lusengo	lse
 Lyons Sign Language	lsg
@@ -4215,6 +4228,9 @@ Aruop	lsr
 Lasi	lss
 Trinidad and Tobago Sign Language	lst
 Sivia Sign Language	lsv
+Seychelles Sign Language	lsw
+Lalang Siny Seselwa	lsw
+Langue des Signes Seychelloise	lsw
 Mauritian Sign Language	lsy
 Late Middle Chinese	ltc
 Latgalian	ltg
@@ -5406,6 +5422,7 @@ Southwest Tanna	nwi
 Nyamusa-Molo	nwm
 Nauo	nwo
 Nawaru	nwr
+Ndwewe	nww
 Middle Newar	nwx
 Nottoway-Meherrin	nwy
 Nauete	nxa
@@ -5492,6 +5509,7 @@ Ogbronuagum	ogu
 Old Hittite	oht
 Old Hungarian	ohu
 Oirata	oia
+Okolie	oie
 Inebu One	oin
 Northwestern Ojibwa	ojb
 Central Ojibwa	ojc
@@ -5744,6 +5762,7 @@ Phudagi	phd
 Phuong	phg
 Phukha	phh
 Philippine	phi
+Pahari	phj
 Phake	phk
 Phalura	phl
 Palula	phl
@@ -5935,6 +5954,7 @@ Purik	prx
 Pray 3	pry
 Providencia Sign Language	prz
 Asue Awyu	psa
+Iranian Sign Language	psc
 Persian Sign Language	psc
 Plains Indian Sign Language	psd
 Central Malay	pse
@@ -6008,6 +6028,8 @@ Lengua de Señas del Paraguay	pys
 Puyuma	pyu
 Pyu (Myanmar)	pyx
 Pyen	pyy
+Pazeh	pzh
+Jejara Naga	pzn
 Para Naga	pzn
 Private use	qaa..qtz
 Quapaw	qua
@@ -6125,6 +6147,7 @@ Ringgou	rgu
 Rohingya	rhg
 Yahang	rhp
 Riang (India)	ria
+Bribri Sign Language	rib
 Rien	rie
 Tarifit	rif
 Riang Lang	ril
@@ -6171,6 +6194,7 @@ Romam	rmx
 Vlax Romani	rmy
 Marma	rmz
 Runa	rna
+Brunca Sign Language	rnb
 Ruund	rnd
 Ronga	rng
 Ranglong	rnl
@@ -6199,8 +6223,11 @@ Waima	rro
 Arritinngithigh	rrt
 Romano-Serbian	rsb
 Rennellese Sign Language	rsi
+Ruthenian	rsk
+Rusyn	rsk
 Russian Sign Language	rsl
 Miriwoong Sign Language	rsm
+Rwandan Sign Language	rsn
 Rungtu Chin	rtc
 Ratahan	rth
 Rotuman	rtm
@@ -7087,6 +7114,7 @@ Tonga (Nyasa)	tog
 Gitonga	toh
 Tonga (Zambia)	toi
 Tojolabal	toj
+Toki Pona	tok
 Tolowa	tol
 Tombulu	tom
 Xicotepec De Juárez Totonac	too
@@ -7158,6 +7186,8 @@ Chicahuaxtla Triqui	trs
 Tunggare	trt
 Turoyo	tru
 Surayt	tru
+Sediq	trv
+Seediq	trv
 Taroko	trv
 Torwali	trw
 Tringgus-Sembaan Bidayuh	trx
@@ -7336,6 +7366,7 @@ Ufim	ufi
 Ugaritic	uga
 Kuku-Ugbanh	ugb
 Ughele	uge
+Kubachi	ugh
 Ugandan Sign Language	ugn
 Ugong	ugo
 Uruguayan Sign Language	ugy
@@ -7399,6 +7430,7 @@ Unubahe	unu
 Munda	unx
 Unde Kaili	unz
 Uokha	uok
+Kulon	uon
 Umeda	upi
 Uripiv-Wala-Rano-Atchin	upv
 Urarina	ura
@@ -7601,6 +7633,7 @@ Wandji	wdd
 Wadaginam	wdg
 Wadjiginy	wdj
 Wadikali	wdk
+Wendat	wdt
 Wadjigu	wdu
 Wadjabangayi	wdy
 Wewaw	wea
@@ -7789,6 +7822,7 @@ Wyandot	wya
 Wangaaybuwan-Ngiyambaa	wyb
 Woiwurrung	wyi
 Wymysorys	wym
+Wyandot	wyn
 Wayoró	wyr
 Western Fijian	wyy
 Andalusian Arabic	xaa
@@ -7852,6 +7886,7 @@ Dacian	xdc
 Dharuk	xdk
 Edomite	xdm
 Kwandu	xdo
+Kaitag	xdq
 Malayic Dayak	xdy
 Eblan	xeb
 Hdi	xed
@@ -7881,6 +7916,7 @@ Harami	xha
 Hunnic	xhc
 Hadrami	xhd
 Khetrani	xhe
+Middle Khmer (1400 to 1850 CE)	xhm
 Hernican	xhr
 Hattic	xht
 Hurrian	xhu
@@ -7907,6 +7943,7 @@ Kagoro	xkg
 Karahawyana	xkh
 Kenyan Sign Language	xki
 Kajali	xkj
+Kachok	xkk
 Kaco'	xkk
 Mainstream Kenyah	xkl
 Kayan River Kayan	xkn
@@ -7958,6 +7995,7 @@ Kamu	xmu
 Antankarana Malagasy	xmv
 Tankarana Malagasy	xmv
 Tsimihety Malagasy	xmw
+Salawati	xmx
 Maden	xmx
 Mayaguduna	xmy
 Mori Bawah	xmz
@@ -8415,6 +8453,7 @@ Batui	zbt
 Bu (Bauchi State)	zbu
 West Berawan	zbw
 Coatecas Altas Zapotec	zca
+Las Delicias Zapotec	zcd
 Central Hongshuihe Zhuang	zch
 Ngazidja Comorian	zdj
 Zeeuws	zea

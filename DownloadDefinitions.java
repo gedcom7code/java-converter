@@ -51,26 +51,30 @@ public class DownloadDefinitions {
     public static void main(String[] args) {
         download(
             "https://github.com/FamilySearch/GEDCOM/raw/main/extracted-files/enumerations.tsv",
-            "edu/virginia/ged5to7/config/enumerations.tsv"
+            "ged5to7/config/enumerations.tsv"
+        );
+        download(
+            "https://github.com/FamilySearch/GEDCOM/raw/main/extracted-files/enumerationsets.tsv",
+            "ged5to7/config/enumerationsets.tsv"
         );
         download(
             "https://github.com/FamilySearch/GEDCOM/raw/main/extracted-files/payloads.tsv",
-            "edu/virginia/ged5to7/config/payloads.tsv"
+            "ged5to7/config/payloads.tsv"
         );
         download(
             "https://github.com/FamilySearch/GEDCOM/raw/main/extracted-files/substructures.tsv",
-            "edu/virginia/ged5to7/config/substructures.tsv"
+            "ged5to7/config/substructures.tsv"
         );
         download(
             "https://github.com/FamilySearch/GEDCOM/raw/main/extracted-files/cardinalities.tsv",
-            "edu/virginia/ged5to7/config/cardinalities.tsv"
+            "ged5to7/config/cardinalities.tsv"
         );
         download(
             "https://github.com/fhiso/legacy-format/raw/master/languages.tsv",
-            "edu/virginia/ged5to7/config/languages.tsv"
+            "ged5to7/config/languages.tsv"
         );
         downloadIANALanguageSubtagRegistery(
-            "edu/virginia/ged5to7/config/all-languages.tsv"
+            "ged5to7/config/all-languages.tsv"
         );
     }
 }

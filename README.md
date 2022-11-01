@@ -1,11 +1,19 @@
-# Incomplete Draft
+# Feature-complete but limited testing
 
-This is an **incomplete, work-in-progress** 5.5.1-to-7.0 converter.
-Some parts are ported directly from the C converter (such as the ANSEL Charset and date and age parsing) while others are built from the ground up. The hope is that having two somewhat-separate implementations will allow me to use the two to test one another, a hope that has already resulted in a few bug fixes in the C version.
+This implements all of the major pieces of a 5.5.1-to-7.0 converter.
+Some tests were perfomed during development, but not enough to provide confidence of bug-free status.
+
+Some parts are ported directly from the [C converter](https://github.com/gedcom7code/c-converter) (such as the ANSEL Charset and date and age parsing) while others are built from the ground up. The hope is that having two somewhat-separate implementations will allow me to use the two to test one another, a hope that has already resulted in a few bug fixes in the C version.
+
+Missing but potentially desirable functionality:
+
+- [ ] fix common 5.5.1 error of `INDI`.`ALIA` meaning `INDI`.`NAME`.`TYPE ALIA`
+- [ ] handle 5.5's base64-encoded OBJE, generating GEDZip files
+- [ ] put common extensions into a `SCHMA`
 
 # Updating to new versions of GEDCOM
 
-The file `edu/virginia/ged5to7/config/` contains copies of the TSV files
+The file `ged5to7/config/` contains copies of the TSV files
 from <https://github.com/FamilySearch/GEDCOM/>,
 <https://github.com/fhiso/legacy-format/>,
 and <https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry>.
@@ -16,7 +24,7 @@ javac DownloadDefinitions.java
 java DownloadDefinitions
 ```
 
-The above will overwrite the files in `edu/virginia/ged5to7/config/` with updated versions.
+The above will overwrite the files in `ged5to7/config/` with updated versions.
 
 `DownloadDefinitions.java` is otherwise unneeded, and should not be included in distributions of the ged5to7 package.
 

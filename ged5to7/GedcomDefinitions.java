@@ -24,6 +24,19 @@ public class GedcomDefinitions {
         }
         return ans;
     }
+    private static HashMap<String,HashSet<String>> readTSV2(Scanner s) {
+        HashMap<String,HashSet<String>> ans = new HashMap<String,HashSet<String>>();
+        while (s.hasNextLine()) {
+            String line = s.nextLine();
+            int lio = line.lastIndexOf('\t');
+            if (lio < 0) continue;
+            String key = line.substring(0, lio);
+            if (!ans.containsKey(key)) ans.put(key, new HashSet<String>());
+            ans.get(key).add(line.substring(lio+1));
+        }
+        return ans;
+    }
+    
     
     private void addTags(HashMap<String,String> src) {
         for(String key : src.keySet()) {
@@ -34,6 +47,20 @@ public class GedcomDefinitions {
                 throw new RuntimeException("ERROR: uri "+val+" has multiple tags\n\t- "+old+"\n\t- "+tag);
             else if (old == null) tagOf.put(val, tag);
         }
+    }
+    
+    /// enumerations.tsv was split into two files after most of this code was written. This placeholder function replicates the old format from the new.
+    private static HashMap<String,String> oldEnumFormat(HashMap<String,String> enums, HashMap<String,HashSet<String>> esets) {
+        HashMap<String,String> ans = new HashMap<String,String>();
+        for(String superstruct : enums.keySet()) {
+            for(String taguri : esets.get(enums.get(superstruct))) {
+                int tagi = taguri.lastIndexOf('-');
+                if (tagi < 0) tagi = taguri.lastIndexOf('/');
+                String tag = taguri.substring(tagi+1);
+                ans.put(superstruct+'\t'+tag, taguri);
+            }
+        }
+        return ans;
     }
 
     
@@ -54,7 +81,9 @@ public class GedcomDefinitions {
         
         pays = readTSV(new Scanner(getClass().getResourceAsStream("config/payloads.tsv")));
 
-        enums = readTSV(new Scanner(getClass().getResourceAsStream("config/enumerations.tsv")));
+        HashMap<String, String> e1 = readTSV(new Scanner(getClass().getResourceAsStream("config/enumerations.tsv")));
+        HashMap<String, HashSet<String>> e2 = readTSV2(new Scanner(getClass().getResourceAsStream("config/enumerationsets.tsv")));
+        enums = oldEnumFormat(e1, e2);
         enumSet = new HashSet<String>(enums.values());
         addTags(enums);
         
